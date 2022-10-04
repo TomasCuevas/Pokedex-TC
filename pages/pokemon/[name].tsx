@@ -49,12 +49,12 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
           nextClick={() => navigateTo("next")}
           previousClick={() => navigateTo("previous")}
         />
-        <div className="h-[300px] items-center hidden lg:flex cursor-pointer">
+        <div className="h-[300px] w-[36px] items-center hidden lg:flex">
           <MdArrowBackIosNew
             onClick={() => navigateTo("previous")}
             className={
               previous
-                ? "text-4xl text-slate-400 hover:text-white duration-300"
+                ? "text-4xl text-slate-400 hover:text-white duration-300 cursor-pointer"
                 : "hidden"
             }
           />
@@ -116,12 +116,12 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
             </Card.Body>
           </Card>
         </Grid>
-        <div className="h-[300px] items-center hidden lg:flex cursor-pointer">
+        <div className="h-[300px] w-[36px] items-center hidden lg:flex">
           <MdArrowForwardIos
             onClick={() => navigateTo("next")}
             className={
               next
-                ? "text-4xl text-slate-400 hover:text-white duration-300"
+                ? "text-4xl text-slate-400 hover:text-white duration-300 cursor-pointer"
                 : "hidden"
             }
           />
