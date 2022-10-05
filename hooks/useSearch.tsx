@@ -17,7 +17,6 @@ export const useSearch = (toSearch: string) => {
   const [visible, setVisible] = useState(false);
 
   const getPokemonSearcher = async () => {
-    console.log(toSearch);
     if (toSearch.length < 1) {
       setVisible(false);
       setResults([]);

@@ -13,6 +13,9 @@ import {
 //* api *//
 import { pokeApi } from "../../axios";
 
+//* components *//
+import { ArrowsMobile } from "../../components/pokemon";
+
 //* layout *//
 import { Layout } from "../../components/layouts";
 
@@ -24,7 +27,7 @@ import { usePreviousNext, useToggleFavorite } from "../../hooks";
 
 //* interfaces *//
 import { PokemonFull, PokemonListResponse } from "../../interfaces";
-import { ArrowsMobile } from "../../components/pokemon/ArrowsMobile";
+import { PokemonStats } from "../../components/pokemon/PokemonStats";
 
 interface Props {
   pokemon: PokemonFull;
@@ -47,19 +50,19 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
 
   return (
     <Layout title={`${pokemon.name.toUpperCase()} - Pokedex TC`}>
-      <Grid.Container className="mt-1 gap-5 flex justify-center px-[5%]">
+      <Grid.Container className="mt-1 flex justify-center gap-5 px-[5%]">
         <ArrowsMobile
           next={next}
           previous={previous}
           nextClick={() => navigateTo("next")}
           previousClick={() => navigateTo("previous")}
         />
-        <div className="h-[300px] w-[36px] items-center hidden lg:flex">
+        <div className="hidden h-[300px] w-[36px] items-center lg:flex">
           <MdArrowBackIosNew
             onClick={() => navigateTo("previous")}
             className={
               previous
-                ? "text-4xl text-slate-400 hover:text-white duration-300 cursor-pointer"
+                ? "cursor-pointer text-4xl text-slate-400 duration-300 hover:text-white"
                 : "hidden"
             }
           />
@@ -73,7 +76,7 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
                   "/no-image.png"
                 }
                 alt={pokemon.name}
-                className="w-full h-[200px]"
+                className="h-[200px] w-full"
               />
             </Card.Body>
           </Card>
@@ -86,14 +89,18 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
               </Text>
               <Button color="gradient" onPress={onToggleFavorite}>
                 {isInFavorite ? (
-                  <div className="flex items-center gap-1 w-full">
+                  <div className="flex w-full items-center gap-1">
                     <MdOutlineRemoveCircleOutline className="text-lg" />
-                    <p className="text-lg">Quitar de favoritos</p>
+                    <p className="text-base font-medium tracking-[1px]">
+                      Quitar de favoritos
+                    </p>
                   </div>
                 ) : (
                   <div className="flex items-center gap-1">
                     <MdOutlineAddCircleOutline className="text-lg" />
-                    <p className="text-lg">Guardar en favoritos</p>
+                    <p className="text-base font-medium tracking-[1px]">
+                      Guardar en favoritos
+                    </p>
                   </div>
                 )}
               </Button>
@@ -107,22 +114,22 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
                       <Image
                         src={pokemon.sprites.front_default}
                         alt={pokemon.name}
-                        className="w-[120px] h-[120px]"
+                        className="h-[120px] w-[120px] duration-300"
                       />
                       <Image
                         src={pokemon.sprites.back_default}
                         alt={pokemon.name}
-                        className="w-[120px] h-[120px]"
+                        className="h-[120px] w-[120px]"
                       />
                       <Image
                         src={pokemon.sprites.front_shiny}
                         alt={pokemon.name}
-                        className="w-[120px] h-[120px]"
+                        className="h-[120px] w-[120px]"
                       />
                       <Image
                         src={pokemon.sprites.back_shiny}
                         alt={pokemon.name}
-                        className="w-[120px] h-[120px]"
+                        className="h-[120px] w-[120px]"
                       />
                     </div>
                   </>
@@ -131,21 +138,23 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
             </Card.Body>
           </Card>
         </Grid>
-        <div className="h-[300px] w-[36px] items-center hidden lg:flex">
+        <div className="hidden h-[300px] w-[36px] items-center lg:flex">
           <MdArrowForwardIos
             onClick={() => navigateTo("next")}
             className={
               next
-                ? "text-4xl text-slate-400 hover:text-white duration-300 cursor-pointer"
+                ? "cursor-pointer text-4xl text-slate-400 duration-300 hover:text-white"
                 : "hidden"
             }
           />
         </div>
       </Grid.Container>
+      <PokemonStats stat={pokemon.stats} />
     </Layout>
   );
 };
 
+//* static side generation *//
 export const getStaticPaths: GetStaticPaths = async () => {
   const { data } = await pokeApi.get<PokemonListResponse>("/pokemon?limit=50");
   const pokemonNames: string[] = data.results.map((pokemon) => pokemon.name);
