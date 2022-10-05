@@ -7,6 +7,11 @@ import { pokeApi } from "../axios";
 //* interface *//
 import { PokemonListResponse } from "../interfaces";
 
+interface PreviousAndNext {
+  previous: string;
+  next: string;
+}
+
 export const usePreviousNext = (name: string) => {
   const [previous, setPrevious] = useState<string>();
   const [next, setNext] = useState<string>();
@@ -16,21 +21,21 @@ export const usePreviousNext = (name: string) => {
       data: { results: allPokemons },
     } = await pokeApi.get<PokemonListResponse>("/pokemon?limit=900&offset=0");
 
-    let previousAndNext: { previous?: string; next?: string };
+    let previousAndNext: PreviousAndNext = { previous: "", next: "" };
 
     allPokemons.forEach((pokemon, index) => {
       if (pokemon.name === name) {
         previousAndNext = {
-          previous: allPokemons[index - 1]?.name || undefined,
-          next: allPokemons[index + 1]?.name || undefined,
+          previous: allPokemons[index - 1]?.name,
+          next: allPokemons[index + 1]?.name,
         };
       }
     });
 
-    previousAndNext!.previous
+    previousAndNext?.previous
       ? setPrevious(previousAndNext!.previous)
       : setPrevious(undefined);
-    previousAndNext!.next
+    previousAndNext?.next
       ? setNext(previousAndNext!.next)
       : setPrevious(undefined);
   };

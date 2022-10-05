@@ -1,7 +1,12 @@
 import { Text, Spacer, Link } from "@nextui-org/react";
 import Image from "next/image";
 import NextLink from "next/link";
+
+//* icons *//
 import { MdFavorite } from "react-icons/md";
+
+//* components *//
+import { Searcher } from "./";
 
 export const Navbar = () => {
   return (
@@ -14,15 +19,17 @@ export const Navbar = () => {
             width={70}
             height={70}
           />
-          <Text color="white" h2>
-            P
-          </Text>
-          <Text color="white" h3>
-            okedex TC
+          <Text
+            color="white"
+            className="text-2xl first-letter:text-5xl first-letter:font-semibold tracking-[1px] pl-1 font-light hover:text-slate-300 duration-300"
+            h3
+          >
+            Pokedex TC
           </Text>
         </Link>
       </NextLink>
       <Spacer css={{ flex: 1 }} />
+      <Searcher />
       <NextLink href="/favorites">
         <Link>
           <Text
@@ -30,7 +37,6 @@ export const Navbar = () => {
             className="flex items-center gap-1 font-bold text-lg"
           >
             Favoritos
-            <MdFavorite />
           </Text>
         </Link>
       </NextLink>
