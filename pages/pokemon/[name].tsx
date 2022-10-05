@@ -48,6 +48,8 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
       return router.push(`/pokemon/${previous}`);
   };
 
+  console.log(pokemon);
+
   return (
     <Layout title={`${pokemon.name.toUpperCase()} - Pokedex TC`}>
       <Grid.Container className="mt-1 flex justify-center gap-5 px-[5%]">
@@ -107,9 +109,29 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
             </Card.Header>
             <Card.Body className="w-full">
               <Container className="flex flex-col">
+                <Text className="text-3xl font-semibold tracking-[1px]">
+                  {pokemon.types.length > 1 ? <>Tipos:</> : <>Tipo:</>}
+                </Text>
+                <div className="my-6 flex flex-col flex-wrap sm:flex-row sm:gap-10">
+                  {pokemon.types.map((type) => (
+                    <div
+                      key={type.type.name}
+                      className="flex items-center gap-3"
+                    >
+                      <Image
+                        src={`/img/types/${type.type.name}.png`}
+                        alt={type.type.name}
+                        className="m-0 h-[60px] w-[60px]"
+                      />
+                      <h4 className="capitalize">{type.type.name}</h4>
+                    </div>
+                  ))}
+                </div>
                 {pokemon.sprites.front_default && (
                   <>
-                    <Text className="text-3xl">Sprites:</Text>
+                    <Text className="text-3xl font-semibold tracking-[1px]">
+                      Más imágenes:
+                    </Text>
                     <div className="flex flex-wrap justify-center">
                       <Image
                         src={pokemon.sprites.front_default}

@@ -13,6 +13,7 @@ export const getPokemonInfo = async (nameOrId: string) => {
       name: data.name,
       sprites: data.sprites,
       stats: data.stats,
+      types: data.types,
     };
 
     return pokemon;

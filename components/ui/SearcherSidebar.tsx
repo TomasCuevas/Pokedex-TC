@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { useRouter } from "next/router";
 import NextLink from "next/link";
 import Image from "next/image";
 import { Link } from "@nextui-org/react";
@@ -9,16 +10,20 @@ import { MdSearch } from "react-icons/md";
 
 //* hooks *//
 import { useSearch } from "../../hooks";
-import { useRouter } from "next/router";
+
+//* context *//
+import { NavbarContext } from "../../context/NavbarContext";
 
 export const SearcherSidebar: React.FC = () => {
   const router = useRouter();
+  const { onToggleSidebar } = useContext(NavbarContext);
   const [search, setSearch] = useState<string>("");
   const { results, visible, onClear, onChangeVisibility } = useSearch(search);
 
   useEffect(() => {
     onClear();
     setSearch("");
+    onToggleSidebar();
   }, [router.asPath]);
 
   return (

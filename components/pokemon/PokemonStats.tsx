@@ -9,10 +9,22 @@ interface Props {
 
 export const PokemonStats: React.FC<Props> = ({ stat }) => {
   const stats = [
-    { name: "Hp", image: "/img/hp.png", base: stat[0].base_stat },
-    { name: "Attack", image: "/img/attack.png", base: stat[1].base_stat },
-    { name: "Defense", image: "/img/defense.png", base: stat[2].base_stat },
-    { name: "Speed", image: "/img/speed.png", base: stat[5].base_stat },
+    { name: "Hp", image: "/img/abilities/hp.png", base: stat[0].base_stat },
+    {
+      name: "Attack",
+      image: "/img/abilities/attack.png",
+      base: stat[1].base_stat,
+    },
+    {
+      name: "Defense",
+      image: "/img/abilities/defense.png",
+      base: stat[2].base_stat,
+    },
+    {
+      name: "Speed",
+      image: "/img/abilities/speed.png",
+      base: stat[5].base_stat,
+    },
   ];
 
   return (
