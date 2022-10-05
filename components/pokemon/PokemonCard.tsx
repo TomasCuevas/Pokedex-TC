@@ -19,8 +19,8 @@ export const PokemonCard: React.FC<Pokemon> = ({ id, img, name }) => {
         </Card.Body>
         <Card.Footer>
           <Row justify="space-between">
-            <Text transform="capitalize">{name}</Text>
-            <Text>#{id}</Text>
+            <Text className="text-xl capitalize">{name}</Text>
+            <Text className="text-xl">#{id}</Text>
           </Row>
         </Card.Footer>
       </Card>
