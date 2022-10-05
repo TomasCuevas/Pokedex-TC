@@ -1,4 +1,4 @@
-import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
+import { MdOutlineNavigateBefore, MdOutlineNavigateNext } from "react-icons/md";
 
 interface Props {
   next: string | undefined;
@@ -15,19 +15,19 @@ export const ArrowsMobile: React.FC<Props> = ({
 }) => {
   return (
     <div className="w-full flex justify-between lg:hidden">
-      <MdArrowBackIosNew
+      <MdOutlineNavigateBefore
         onClick={previousClick}
         className={
           previous
-            ? "text-2xl text-slate-400 cursor-pointer hover:text-white duration-300 sm:text-4xl md:text-5xl mr-auto"
+            ? "text-4xl text-slate-400 cursor-pointer hover:text-white duration-300 sm:text-4xl md:text-5xl mr-auto"
             : "hidden"
         }
       />
-      <MdArrowForwardIos
+      <MdOutlineNavigateNext
         onClick={nextClick}
         className={
           next
-            ? "text-2xl text-slate-400 cursor-pointer hover:text-white duration-300 sm:text-4xl md:text-5xl ml-auto"
+            ? "text-4xl text-slate-400 cursor-pointer hover:text-white duration-300 sm:text-4xl md:text-5xl ml-auto"
             : "hidden"
         }
       />

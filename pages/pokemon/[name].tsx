@@ -3,7 +3,12 @@ import { useRouter } from "next/router";
 import { Button, Card, Container, Grid, Image, Text } from "@nextui-org/react";
 
 //* icons *//
-import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
+import {
+  MdArrowBackIosNew,
+  MdArrowForwardIos,
+  MdOutlineAddCircleOutline,
+  MdOutlineRemoveCircleOutline,
+} from "react-icons/md";
 
 //* api *//
 import { pokeApi } from "../../axios";
@@ -80,7 +85,17 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
                 {pokemon.name}
               </Text>
               <Button color="gradient" onPress={onToggleFavorite}>
-                {isInFavorite ? <>En favoritos</> : <>Guardar en favoritos</>}
+                {isInFavorite ? (
+                  <div className="flex items-center gap-1 w-full">
+                    <MdOutlineRemoveCircleOutline className="text-lg" />
+                    <p className="text-lg">Quitar de favoritos</p>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-1">
+                    <MdOutlineAddCircleOutline className="text-lg" />
+                    <p className="text-lg">Guardar en favoritos</p>
+                  </div>
+                )}
               </Button>
             </Card.Header>
             <Card.Body className="w-full">

@@ -1,6 +1,6 @@
 import { Container, Text, Image } from "@nextui-org/react";
 
-export const NoFavorites = () => {
+export const NoFavorites: React.FC = () => {
   return (
     <Container className="flex flex-col h-[calc(100vh_-_140px)] items-center justify-center">
       <Text h1>No hay favoritos</Text>

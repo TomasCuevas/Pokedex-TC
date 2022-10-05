@@ -1,15 +1,19 @@
 import Head from "next/head";
 
+//* provider *//
+import { NavbarProvider } from "../../context";
+
+//* components *//
 import { Navbar } from "../ui";
 
-interface LayoutProps {
+const origin = typeof window === "undefined" ? "" : window.location.origin;
+
+interface Props {
   children: JSX.Element | JSX.Element[];
   title?: string;
 }
 
-const origin = typeof window === "undefined" ? "" : window.location.origin;
-
-export const Layout = ({ children, title }: LayoutProps) => {
+export const Layout: React.FC<Props> = ({ children, title }) => {
   return (
     <>
       <Head>
@@ -27,8 +31,11 @@ export const Layout = ({ children, title }: LayoutProps) => {
         />
         <meta property="og:image" content={`${origin}/img/banner.png`} />
       </Head>
-      <Navbar />
-      <main className="py-5 pb-7">{children}</main>
+
+      <NavbarProvider>
+        <Navbar />
+      </NavbarProvider>
+      <main className="overflow-x-hidden py-5 pb-7">{children}</main>
     </>
   );
 };

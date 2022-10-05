@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 //* interfaces *//
 import { Pokemon } from "../../interfaces";
 
-export const PokemonCard = ({ id, img, name }: Pokemon) => {
+export const PokemonCard: React.FC<Pokemon> = ({ id, img, name }) => {
   const router = useRouter();
 
   const onClick = () => {

@@ -14,10 +14,14 @@ interface results {
 
 export const useSearch = (toSearch: string) => {
   const [results, setResults] = useState<results[]>([]);
+  const [visible, setVisible] = useState(false);
 
   const getPokemonSearcher = async () => {
+    console.log(toSearch);
     if (toSearch.length < 1) {
-      return setResults([]);
+      setVisible(false);
+      setResults([]);
+      return;
     }
 
     const { data } = await pokeApi.get<PokemonListResponse>(
@@ -37,9 +41,15 @@ export const useSearch = (toSearch: string) => {
     });
 
     setResults(allIncludes);
+    setVisible(true);
   };
 
-  const clear = () => setResults([]);
+  const onChangeVisibility = () => setVisible((prev) => !prev);
+
+  const onClear = () => {
+    setVisible(false);
+    setResults([]);
+  };
 
   useEffect(() => {
     getPokemonSearcher();
@@ -48,8 +58,10 @@ export const useSearch = (toSearch: string) => {
   return {
     // properties
     results,
+    visible,
 
     // methods
-    clear,
+    onClear,
+    onChangeVisibility,
   };
 };

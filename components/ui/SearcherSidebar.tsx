@@ -11,7 +11,7 @@ import { MdSearch } from "react-icons/md";
 import { useSearch } from "../../hooks";
 import { useRouter } from "next/router";
 
-export const Searcher: React.FC = () => {
+export const SearcherSidebar: React.FC = () => {
   const router = useRouter();
   const [search, setSearch] = useState<string>("");
   const { results, visible, onClear, onChangeVisibility } = useSearch(search);
@@ -22,7 +22,7 @@ export const Searcher: React.FC = () => {
   }, [router.asPath]);
 
   return (
-    <div className="relative hidden items-center rounded-lg bg-slate-300 py-1 pl-3 shadow-md shadow-slate-900 lg:mr-8 lg:flex xl:mr-20">
+    <div className="relative flex items-center rounded-lg bg-slate-300 py-1 pl-3 shadow-md shadow-slate-900 lg:mr-8 xl:mr-20">
       <MdSearch className="text-xl text-slate-500" />
       <input
         className="border-none bg-white/0 pr-3 pl-1 text-base font-semibold text-slate-900 outline-none"

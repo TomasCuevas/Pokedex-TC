@@ -1,16 +1,22 @@
-import { Text, Spacer, Link } from "@nextui-org/react";
+import { useContext } from "react";
 import Image from "next/image";
 import NextLink from "next/link";
+import { Text, Spacer, Link, Button } from "@nextui-org/react";
 
 //* icons *//
-import { MdFavorite } from "react-icons/md";
+import { MdOutlineMenu } from "react-icons/md";
 
 //* components *//
-import { Searcher } from "./";
+import { Searcher, Sidebar } from "./";
 
-export const Navbar = () => {
+//* context *//
+import { NavbarContext } from "../../context/NavbarContext";
+
+export const Navbar: React.FC = () => {
+  const { isSidebar, onToggleSidebar } = useContext(NavbarContext);
+
   return (
-    <div className="flex w-full items-center justify-start px-7 py-2 bg-gray-800 sticky top-0 z-10">
+    <div className="sticky top-0 z-10 flex w-full items-center justify-start bg-gray-800 px-7 py-2">
       <NextLink href="/">
         <Link>
           <Image
@@ -21,7 +27,7 @@ export const Navbar = () => {
           />
           <Text
             color="white"
-            className="text-2xl first-letter:text-5xl first-letter:font-semibold tracking-[1px] pl-1 font-light hover:text-slate-300 duration-300"
+            className="text-2xl font-light tracking-[1px] duration-300 first-letter:text-5xl first-letter:font-semibold hover:text-slate-300"
             h3
           >
             Pokedex TC
@@ -29,15 +35,12 @@ export const Navbar = () => {
         </Link>
       </NextLink>
       <Spacer css={{ flex: 1 }} />
+      <MdOutlineMenu className="text-4xl lg:hidden" onClick={onToggleSidebar} />
+      {isSidebar && <Sidebar />}
       <Searcher />
-      <NextLink href="/favorites">
-        <Link>
-          <Text
-            color="white"
-            className="flex items-center gap-1 font-bold text-lg"
-          >
-            Favoritos
-          </Text>
+      <NextLink href="/favorites" passHref>
+        <Link className="hidden lg:flex">
+          <Button color="gradient">Favoritos</Button>
         </Link>
       </NextLink>
     </div>
