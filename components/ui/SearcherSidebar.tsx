@@ -23,7 +23,6 @@ export const SearcherSidebar: React.FC = () => {
   useEffect(() => {
     onClear();
     setSearch("");
-    onToggleSidebar();
   }, [router.asPath]);
 
   return (
@@ -56,7 +55,10 @@ export const SearcherSidebar: React.FC = () => {
               passHref
             >
               <Link className="flex min-w-full text-white">
-                <li className="m-0 flex h-12 w-full items-center gap-3 border-b border-white px-2">
+                <li
+                  onClick={onToggleSidebar}
+                  className="m-0 flex h-12 w-full items-center gap-3 border-b border-white px-2"
+                >
                   <Image
                     src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
                     alt={pokemon.name}
