@@ -37,12 +37,12 @@ export const SearcherSidebar: React.FC = () => {
         onBlur={() => {
           setTimeout(() => {
             onChangeVisibility();
-          }, 100);
+          }, 500);
         }}
         onFocus={() => {
           setTimeout(() => {
             onChangeVisibility();
-          }, 100);
+          }, 500);
         }}
       />
 

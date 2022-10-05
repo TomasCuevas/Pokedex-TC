@@ -48,8 +48,6 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
       return router.push(`/pokemon/${previous}`);
   };
 
-  console.log(pokemon);
-
   return (
     <Layout title={`${pokemon.name.toUpperCase()} - Pokedex TC`}>
       <Grid.Container className="mt-1 flex justify-center gap-5 px-[5%]">

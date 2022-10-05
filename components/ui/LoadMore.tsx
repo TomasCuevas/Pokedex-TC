@@ -10,10 +10,10 @@ export const LoadMore: React.FC<Props> = ({ onClick, none }) => {
       className={
         none
           ? "hidden"
-          : "mx-auto bg-yellow-300 w-[25%] h-[50px] flex justify-center items-center cursor-pointer rounded-2xl hover:bg-yellow-500 hover:duration-500 duration-1000  hover:scale-105"
+          : "mx-auto flex h-[50px] w-[25%] min-w-[200px] cursor-pointer items-center justify-center rounded-2xl bg-yellow-300 duration-1000 hover:scale-105 hover:bg-yellow-500  hover:duration-500"
       }
     >
-      <div className="text-slate-900 text-2xl font-bold">Cargar más...</div>
+      <div className="text-2xl font-bold text-slate-900">Cargar más...</div>
     </div>
   );
 };
