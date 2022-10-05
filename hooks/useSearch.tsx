@@ -31,7 +31,7 @@ export const useSearch = (toSearch: string) => {
     data.results.forEach((pokemon) => {
       if (
         pokemon.name.includes(toSearch.toLowerCase()) &&
-        allIncludes.length < 15
+        allIncludes.length < 10
       ) {
         const name = pokemon.name;
         const id = pokemon.url.split("/").at(-2)!;
