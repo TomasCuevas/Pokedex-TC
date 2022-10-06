@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 //* interface *//
 import { Stat } from "../../interfaces";
 
@@ -33,12 +31,10 @@ export const PokemonStats: React.FC<Props> = ({ stat }) => {
         <article key={stat.name} className="flex duration-300">
           <div className="flex flex-col items-center gap-5">
             <span className="font-black tracking-[4px]">{stat.name}</span>
-            <Image
+            <img
               src={stat.image}
               alt="hp"
               className="h-[120px] w-[120px] object-fill"
-              height={120}
-              width={120}
             />
             <span className="text-4xl font-black tracking-[5px]">
               {stat.base}

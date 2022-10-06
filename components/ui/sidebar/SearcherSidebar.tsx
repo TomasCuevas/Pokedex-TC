@@ -2,7 +2,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import NextLink from "next/link";
-import Image from "next/image";
 import { Link } from "@nextui-org/react";
 
 //* icons *//
@@ -59,11 +58,10 @@ export const SearcherSidebar: React.FC = () => {
                   onClick={onToggleSidebar}
                   className="m-0 flex h-12 w-full items-center gap-3 px-2"
                 >
-                  <Image
+                  <img
                     src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
                     alt={pokemon.name}
-                    height="30px"
-                    width="30px"
+                    className="h-[30px] w-[30px]"
                   />
                   <p className="font-semibold capitalize text-slate-900">
                     {pokemon.name}

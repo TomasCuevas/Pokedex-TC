@@ -1,4 +1,4 @@
-import { Container, Text, Image } from "@nextui-org/react";
+import { Container, Text } from "@nextui-org/react";
 
 export const NoFavorites: React.FC = () => {
   return (
@@ -6,7 +6,7 @@ export const NoFavorites: React.FC = () => {
       <Text className="text-center" h1>
         No hay favoritos
       </Text>
-      <Image
+      <img
         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/132.svg"
         className="h-[250px] w-[250px] opacity-5"
         alt="no favorite"

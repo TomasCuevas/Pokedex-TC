@@ -1,6 +1,6 @@
 import { GetStaticProps, GetStaticPaths, NextPage } from "next";
 import { useRouter } from "next/router";
-import { Button, Card, Container, Grid, Image, Text } from "@nextui-org/react";
+import { Button, Card, Container, Grid, Text } from "@nextui-org/react";
 
 //* icons *//
 import {
@@ -116,7 +116,7 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
                       key={type.type.name}
                       className="flex items-center gap-3"
                     >
-                      <Image
+                      <img
                         src={`/img/types/${type.type.name}.png`}
                         alt={type.type.name}
                         className="m-0 h-[60px] w-[60px]"
@@ -131,22 +131,22 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
                       Más imágenes:
                     </Text>
                     <div className="flex flex-wrap justify-center">
-                      <Image
+                      <img
                         src={pokemon.sprites.front_default}
                         alt={pokemon.name}
                         className="h-[120px] w-[120px] duration-300"
                       />
-                      <Image
+                      <img
                         src={pokemon.sprites.back_default}
                         alt={pokemon.name}
                         className="h-[120px] w-[120px]"
                       />
-                      <Image
+                      <img
                         src={pokemon.sprites.front_shiny}
                         alt={pokemon.name}
                         className="h-[120px] w-[120px]"
                       />
-                      <Image
+                      <img
                         src={pokemon.sprites.back_shiny}
                         alt={pokemon.name}
                         className="h-[120px] w-[120px]"

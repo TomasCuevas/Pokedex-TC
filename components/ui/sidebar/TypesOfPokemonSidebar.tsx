@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import NextLink from "next/link";
-import Image from "next/image";
 import { Link } from "@nextui-org/react";
 
 //* context /
@@ -41,7 +40,7 @@ export const TypesOfPokemonSidebar = () => {
                 onClick={onToggleSidebar}
                 className="flex items-center justify-center gap-2"
               >
-                <Image
+                <img
                   src={`/img/types/${type}.png`}
                   alt={type}
                   width={50}

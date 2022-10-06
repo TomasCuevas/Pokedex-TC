@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import Image from "next/image";
 import NextLink from "next/link";
 import { Text, Spacer, Link, Button } from "@nextui-org/react";
 

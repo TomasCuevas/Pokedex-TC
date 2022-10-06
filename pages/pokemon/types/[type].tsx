@@ -1,5 +1,4 @@
 import { NextPage, GetStaticPaths, GetStaticProps } from "next";
-import Image from "next/image";
 import { Grid } from "@nextui-org/react";
 
 //* layout *//
@@ -19,7 +18,7 @@ const PokemonTypesPage: NextPage<Props> = ({ allPokemons, type }) => {
     <Layout title={`${type.toLocaleUpperCase()} - Pokedex TC`}>
       <section className="w-full px-[5%]">
         <div className="flex gap-2">
-          <Image
+          <img
             src={`/img/types/${type}.png`}
             alt={type}
             height={80}

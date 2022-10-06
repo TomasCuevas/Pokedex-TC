@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import NextLink from "next/link";
-import Image from "next/image";
 import { Link } from "@nextui-org/react";
 
 //* icons *//
@@ -67,11 +66,10 @@ export const TypesOfPokemonNavbar = () => {
                 onClick={onTogglePokemonTypes}
                 className="flex items-center justify-center gap-2"
               >
-                <Image
+                <img
                   src={`/img/types/${type}.png`}
                   alt={type}
-                  width={50}
-                  height={50}
+                  className="h-[50px] w-[50px]"
                 />
                 <span className="font-semibold capitalize text-slate-900">
                   {type}
