@@ -23,7 +23,7 @@ export interface PokemonFavorite {
 
 export interface PokemonType {
   damage_relations: DamageRelations;
-  game_indices: GameIndex[];
+  game_indices: GameIndexx[];
   generation: Generation;
   id: number;
   move_damage_class: Generation;
@@ -48,7 +48,7 @@ export interface Generation {
   url: string;
 }
 
-export interface GameIndex {
+export interface GameIndexx {
   game_index: number;
   generation: Generation;
 }
