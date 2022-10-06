@@ -1,10 +1,11 @@
+import { useContext } from "react";
 import Head from "next/head";
-
-//* provider *//
-import { NavbarProvider } from "../../context";
 
 //* components *//
 import { Navbar } from "../ui";
+
+//* context *//
+import { NavbarContext } from "../../context/NavbarContext";
 
 const origin = typeof window === "undefined" ? "" : window.location.origin;
 
@@ -14,6 +15,8 @@ interface Props {
 }
 
 export const Layout: React.FC<Props> = ({ children, title }) => {
+  const { showSidebar } = useContext(NavbarContext);
+
   return (
     <>
       <Head>
@@ -33,10 +36,16 @@ export const Layout: React.FC<Props> = ({ children, title }) => {
         <meta property="twitter:image" content={`${origin}/img/banner.png`} />
       </Head>
 
-      <NavbarProvider>
-        <Navbar />
-      </NavbarProvider>
-      <main className="overflow-x-hidden py-5 pb-7">{children}</main>
+      <Navbar />
+      <main
+        className={
+          showSidebar
+            ? "hidden lg:block lg:min-h-[calc(100vh_-_86px)] lg:overflow-x-hidden lg:bg-slate-500 lg:py-5 lg:pb-7"
+            : "min-h-[calc(100vh_-_86px)] overflow-x-hidden bg-slate-500 py-5  pb-7"
+        }
+      >
+        {children}
+      </main>
     </>
   );
 };

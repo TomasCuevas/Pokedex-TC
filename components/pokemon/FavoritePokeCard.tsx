@@ -37,7 +37,7 @@ export const FavoritePokeCard: React.FC<Props> = ({ pokemon }) => {
       md={2}
       xl={2}
     >
-      <Card isHoverable isPressable className="p-[10px]">
+      <Card isHoverable isPressable className="bg-slate-900 p-[10px]">
         <MdOutlineRemoveCircleOutline
           className="ml-auto text-2xl duration-300 hover:text-red-700"
           onClick={(event) => {

@@ -1,8 +1,10 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 
 //* CONTEXT *//
 interface NavbarContextProps {
-  isSidebar: boolean;
+  showPokemonTypes: boolean;
+  showSidebar: boolean;
+  onTogglePokemonTypes: () => void;
   onToggleSidebar: () => void;
 }
 
@@ -14,17 +16,24 @@ interface Props {
 }
 
 export const NavbarProvider: React.FC<Props> = ({ children }) => {
-  const [isSidebar, setIsSidebar] = useState(false);
+  const [showPokemonTypes, setShowPokemonTypes] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
 
-  const onToggleSidebar = () => setIsSidebar((prev) => !prev);
-
-  useEffect(() => {
-    if (isSidebar) document.body.style.overflow = "hidden";
-    if (!isSidebar) document.body.style.overflow = "unset";
-  }, [isSidebar]);
+  const onTogglePokemonTypes = () => setShowPokemonTypes((prev) => !prev);
+  const onToggleSidebar = () => setShowSidebar((prev) => !prev);
 
   return (
-    <NavbarContext.Provider value={{ isSidebar, onToggleSidebar }}>
+    <NavbarContext.Provider
+      value={{
+        // properties
+        showPokemonTypes,
+        showSidebar,
+
+        // methods
+        onTogglePokemonTypes,
+        onToggleSidebar,
+      }}
+    >
       {children}
     </NavbarContext.Provider>
   );

@@ -62,13 +62,13 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
             onClick={() => navigateTo("previous")}
             className={
               previous
-                ? "cursor-pointer text-4xl text-slate-400 duration-300 hover:text-white"
+                ? "cursor-pointer text-4xl text-slate-300 duration-300 hover:text-white"
                 : "hidden"
             }
           />
         </div>
-        <Grid className="w-full lg:w-[25%]">
-          <Card isHoverable className="p-[30px]">
+        <Grid className="w-full lg:w-[30%]">
+          <Card isHoverable className="bg-slate-900 p-[30px]">
             <Card.Body>
               <Card.Image
                 src={
@@ -81,10 +81,10 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
             </Card.Body>
           </Card>
         </Grid>
-        <Grid className="w-full lg:w-[calc(60%_-_20px)]">
-          <Card className="px-5">
+        <Grid className="w-full lg:w-[calc(70%_-_132px)]">
+          <Card className="bg-slate-900 px-5">
             <Card.Header className="flex flex-col items-center md:flex-row md:justify-between">
-              <Text h1 className="capitalize">
+              <Text h1 className="text-center capitalize">
                 {pokemon.name}
               </Text>
               <Button color="gradient" onPress={onToggleFavorite}>
@@ -108,7 +108,7 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
             <Card.Body className="w-full">
               <Container className="flex flex-col">
                 <Text className="text-3xl font-semibold tracking-[1px]">
-                  {pokemon.types.length > 1 ? <>Tipos:</> : <>Tipo:</>}
+                  Tipo:
                 </Text>
                 <div className="my-6 flex flex-col flex-wrap sm:flex-row sm:gap-10">
                   {pokemon.types.map((type) => (
@@ -163,7 +163,7 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
             onClick={() => navigateTo("next")}
             className={
               next
-                ? "cursor-pointer text-4xl text-slate-400 duration-300 hover:text-white"
+                ? "cursor-pointer text-4xl text-slate-300 duration-300 hover:text-white"
                 : "hidden"
             }
           />
@@ -174,6 +174,7 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
   );
 };
 
+//* static side generation *//
 //* static side generation *//
 export const getStaticPaths: GetStaticPaths = async () => {
   const { data } = await pokeApi.get<PokemonListResponse>("/pokemon?limit=50");

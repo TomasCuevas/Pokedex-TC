@@ -3,7 +3,7 @@ import { SWRConfig } from "swr";
 import { NextUIProvider } from "@nextui-org/react";
 
 //* providers *//
-import { FavoritesProvider } from "../context";
+import { FavoritesProvider, NavbarProvider } from "../context";
 
 //* theme and styles *//
 import { darkTheme } from "../themes";
@@ -18,9 +18,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       }}
     >
       <NextUIProvider theme={darkTheme}>
-        <FavoritesProvider>
-          <Component {...pageProps} />
-        </FavoritesProvider>
+        <NavbarProvider>
+          <FavoritesProvider>
+            <Component {...pageProps} />
+          </FavoritesProvider>
+        </NavbarProvider>
       </NextUIProvider>
     </SWRConfig>
   );

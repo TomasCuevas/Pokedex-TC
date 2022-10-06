@@ -8,11 +8,12 @@ import { Link } from "@nextui-org/react";
 import { MdSearch } from "react-icons/md";
 
 //* hooks *//
-import { useSearch } from "../../hooks";
+import { useSearch } from "../../../hooks";
 import { useRouter } from "next/router";
 
 export const Searcher: React.FC = () => {
   const router = useRouter();
+
   const [search, setSearch] = useState<string>("");
   const { results, visible, onClear, onChangeVisibility } = useSearch(search);
 
@@ -22,7 +23,7 @@ export const Searcher: React.FC = () => {
   }, [router.asPath]);
 
   return (
-    <div className="relative hidden items-center rounded-lg bg-slate-300 py-1 pl-3 shadow-md shadow-slate-900 lg:mr-8 lg:flex xl:mr-20">
+    <div className="relative hidden items-center rounded-lg bg-slate-300 py-1 px-3  shadow-md shadow-slate-900 lg:mr-8 lg:flex xl:mr-20">
       <MdSearch className="text-xl text-slate-500" />
       <input
         className="border-none bg-white/0 pr-3 pl-1 text-base font-semibold text-slate-900 outline-none"
@@ -43,7 +44,7 @@ export const Searcher: React.FC = () => {
       />
 
       {visible && (
-        <ul className="absolute top-10 right-0 m-0 flex w-full flex-col overflow-hidden rounded-lg bg-gray-900">
+        <ul className="absolute top-10 right-0 m-0 flex w-full flex-col overflow-hidden rounded-lg bg-slate-300">
           {results.map((pokemon) => (
             <NextLink
               key={pokemon.id}
@@ -58,7 +59,9 @@ export const Searcher: React.FC = () => {
                     height="30px"
                     width="30px"
                   />
-                  <p className="capitalize">{pokemon.name}</p>
+                  <p className="font-semibold capitalize text-slate-900">
+                    {pokemon.name}
+                  </p>
                 </li>
               </Link>
             </NextLink>

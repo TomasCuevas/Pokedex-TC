@@ -54,6 +54,8 @@ const HomePage: NextPage<Props> = ({ pokemons }) => {
   );
 };
 
+//* static side generation *//
+//* static side generation *//
 export const getStaticProps: GetStaticProps = async () => {
   const { data } = await pokeApi.get<PokemonListResponse>("/pokemon?limit=50");
   const pokemons = data.results.map((pokemon, index) => ({

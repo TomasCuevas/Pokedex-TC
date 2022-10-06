@@ -13,7 +13,7 @@ export const PokemonCard: React.FC<Pokemon> = ({ id, img, name }) => {
 
   return (
     <Grid onClick={onClick} xs={6} sm={3} md={2} xl={2} key={id}>
-      <Card isHoverable isPressable>
+      <Card className="bg-slate-900" isHoverable isPressable>
         <Card.Body css={{ p: 1 }}>
           <Card.Image height={150} width="100%" src={img} alt={name} />
         </Card.Body>

@@ -28,12 +28,9 @@ export const PokemonStats: React.FC<Props> = ({ stat }) => {
   ];
 
   return (
-    <section className="flex flex-wrap justify-evenly gap-10 px-[5%] py-10">
+    <section className="mx-[5%] my-5 flex flex-wrap justify-evenly gap-10 rounded-[14px] bg-slate-900 px-[5%] py-10">
       {stats.map((stat) => (
-        <article
-          key={stat.name}
-          className="flex opacity-75 duration-300 hover:opacity-100"
-        >
+        <article key={stat.name} className="flex duration-300">
           <div className="flex flex-col items-center gap-5">
             <span className="font-black tracking-[4px]">{stat.name}</span>
             <Image
