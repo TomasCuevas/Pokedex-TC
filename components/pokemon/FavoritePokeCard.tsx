@@ -34,14 +34,16 @@ export const FavoritePokeCard: React.FC<Props> = ({ pokemon }) => {
       className="group flex w-[calc(50%_-_16px)] flex-col md:w-[calc(33%_-_16px)] lg:w-[calc(25%_-_16px)] xl:w-[calc(20%_-_16px)] 2xl:w-[calc(16%_-_16px)]"
     >
       <div className="relative flex w-full cursor-pointer flex-col items-center rounded-2xl bg-slate-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-white/20">
-        <MdOutlineRemoveCircleOutline
-          className="absolute right-3 top-3 ml-auto text-2xl text-white duration-300 hover:text-red-700"
-          onClick={(event) => {
-            event.stopPropagation();
-            onToggleFavorite();
-            onSetRerender();
-          }}
-        />
+        <div className="absolute right-3 top-3 flex rounded-full bg-slate-900 p-[2px]">
+          <MdOutlineRemoveCircleOutline
+            className="text-2xl text-white duration-300 hover:text-red-700"
+            onClick={(event) => {
+              event.stopPropagation();
+              onToggleFavorite();
+              onSetRerender();
+            }}
+          />
+        </div>
         <div className="w-[200px]">
           <Image
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}

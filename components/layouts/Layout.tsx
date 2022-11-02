@@ -40,8 +40,8 @@ export const Layout: React.FC<Props> = ({ children, title }) => {
       <main
         className={
           showSidebar
-            ? "hidden lg:block lg:min-h-[calc(100vh_-_85px)] lg:overflow-x-hidden lg:bg-slate-500 lg:py-5 lg:pb-7"
-            : "min-h-[calc(100vh_-_85px)] overflow-x-hidden bg-slate-500 py-5 pb-7"
+            ? "hidden lg:block lg:min-h-[calc(100vh_-_80px)] lg:overflow-x-hidden lg:bg-slate-500 lg:py-5 lg:pb-7"
+            : "min-h-[calc(100vh_-_60px)] overflow-x-hidden bg-slate-500 py-5 pb-7 sm:min-h-[calc(100vh_-_80px)]"
         }
       >
         {children}

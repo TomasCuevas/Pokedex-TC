@@ -15,7 +15,7 @@ export const Header: React.FC = () => {
   const { showSidebar, onToggleSidebar } = useContext(HeaderContext);
 
   return (
-    <header className="sticky top-0 z-20 flex h-[85px] w-full items-center justify-start bg-gray-900 px-7 py-2">
+    <header className="sticky top-0 z-20 flex h-[60px] w-full items-center justify-start bg-gray-900 px-7 py-2 sm:h-[80px]">
       <section className="flex items-center">
         <NextLink href="/" passHref>
           <a>
