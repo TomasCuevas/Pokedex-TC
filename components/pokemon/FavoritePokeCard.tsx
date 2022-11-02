@@ -35,7 +35,7 @@ export const FavoritePokeCard: React.FC<Props> = ({ pokemon }) => {
     >
       <div className="relative flex w-full cursor-pointer flex-col items-center rounded-2xl bg-slate-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-white/20">
         <MdOutlineRemoveCircleOutline
-          className="absolute right-3 top-3 ml-auto text-2xl duration-300 hover:text-red-700"
+          className="absolute right-3 top-3 ml-auto text-2xl text-white duration-300 hover:text-red-700"
           onClick={(event) => {
             event.stopPropagation();
             onToggleFavorite();
