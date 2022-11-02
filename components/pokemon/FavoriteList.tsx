@@ -1,5 +1,3 @@
-import { Grid } from "@nextui-org/react";
-
 //* components *//
 import { FavoritePokeCard } from "./";
 
@@ -12,10 +10,10 @@ interface Props {
 
 export const FavoriteList: React.FC<Props> = ({ favoritePokemons }) => {
   return (
-    <Grid.Container gap={2} className="flex-row justify-start">
+    <section className="flex flex-wrap justify-center gap-4">
       {favoritePokemons.map((pokemon) => (
         <FavoritePokeCard key={pokemon.id} pokemon={pokemon} />
       ))}
-    </Grid.Container>
+    </section>
   );
 };

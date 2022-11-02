@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { NextPage, GetStaticProps } from "next";
-import useSWR from "swr";
-import { Grid } from "@nextui-org/react";
+import useSWRInmutable from "swr/immutable";
 
 //* api *//
 import { pokeApi } from "../axios";
@@ -24,7 +23,7 @@ const HomePage: NextPage<Props> = ({ pokemons }) => {
   const [allPokemons, setAllPokemons] = useState<Pokemon[]>(pokemons);
   const [offset, setOffset] = useState(pokemons.length);
 
-  const { data } = useSWR<PokemonListResponse>(
+  const { data } = useSWRInmutable<PokemonListResponse>(
     `https://pokeapi.co/api/v2/pokemon?limit=${50}&offset=${offset}`
   );
 
@@ -44,11 +43,11 @@ const HomePage: NextPage<Props> = ({ pokemons }) => {
 
   return (
     <Layout title="Listado de Pokemons">
-      <Grid.Container gap={2} justify="flex-start">
+      <section className="flex flex-wrap justify-center gap-4">
         {allPokemons.map((pokemon) => (
           <PokemonCard key={pokemon.id} {...pokemon} />
         ))}
-      </Grid.Container>
+      </section>
       <LoadMore onClick={loadMorePokemons} none={allPokemons.length >= 900} />
     </Layout>
   );

@@ -1,9 +1,8 @@
 import { useContext } from "react";
 import NextLink from "next/link";
-import { Link } from "@nextui-org/react";
 
 //* context /
-import { NavbarContext } from "../../../context/NavbarContext";
+import { HeaderContext } from "../../../context/HeaderContext";
 
 //* types *//
 const types = [
@@ -28,17 +27,17 @@ const types = [
 ];
 
 export const TypesOfPokemonSidebar = () => {
-  const { onToggleSidebar } = useContext(NavbarContext);
+  const { onToggleSidebar } = useContext(HeaderContext);
 
   return (
     <div className="mt-4">
-      <ul className="mx-auto grid max-w-[300px] grid-cols-2 gap-2 overflow-auto rounded-xl bg-slate-300/80 py-2 px-5 shadow-sm">
+      <ul className="mx-auto grid max-w-[320px] grid-cols-2 gap-2 overflow-auto rounded-xl bg-slate-300/80 py-2 px-5 shadow-lg shadow-gray-900">
         {types.map(({ type }) => (
           <NextLink key={type} href={`/pokemon/types/${type}`}>
-            <Link>
+            <a className="group cursor-pointer overflow-hidden rounded-xl">
               <li
                 onClick={onToggleSidebar}
-                className="flex items-center justify-center gap-2"
+                className="flex items-center justify-start gap-2 px-1 transition-all duration-300 group-hover:bg-slate-900"
               >
                 <img
                   src={`/img/types/${type}.png`}
@@ -46,11 +45,11 @@ export const TypesOfPokemonSidebar = () => {
                   width={50}
                   height={50}
                 />
-                <span className="font-semibold capitalize text-slate-900">
+                <span className="font-semibold capitalize text-slate-900 transition-all duration-300 group-hover:text-slate-100">
                   {type}
                 </span>
               </li>
-            </Link>
+            </a>
           </NextLink>
         ))}
       </ul>

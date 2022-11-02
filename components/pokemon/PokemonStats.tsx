@@ -1,3 +1,5 @@
+import Image from "next/future/image";
+
 //* interface *//
 import { Stat } from "../../interfaces";
 
@@ -26,21 +28,26 @@ export const PokemonStats: React.FC<Props> = ({ stat }) => {
   ];
 
   return (
-    <section className="mx-[5%] my-5 flex flex-wrap justify-evenly gap-10 rounded-[14px] bg-slate-900 px-[5%] py-10">
+    <section className="flex w-full flex-wrap justify-evenly gap-10 rounded-[14px] bg-slate-900 p-5">
       {stats.map((stat) => (
-        <article key={stat.name} className="flex duration-300">
+        <div key={stat.name} className="flex">
           <div className="flex flex-col items-center gap-5">
-            <span className="font-black tracking-[4px]">{stat.name}</span>
-            <img
+            <h5 className="font-black tracking-[4px] text-slate-300 lg:text-xl">
+              {stat.name}
+            </h5>
+            <Image
               src={stat.image}
               alt="hp"
               className="h-[120px] w-[120px] object-fill"
+              width={0}
+              height={0}
+              sizes="100%"
             />
-            <span className="text-4xl font-black tracking-[5px]">
+            <span className="text-4xl font-black tracking-[5px] text-slate-100">
               {stat.base}
             </span>
           </div>
-        </article>
+        </div>
       ))}
     </section>
   );

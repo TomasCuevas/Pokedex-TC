@@ -1,16 +1,19 @@
-import { Container, Text } from "@nextui-org/react";
+import Image from "next/future/image";
 
 export const NoFavorites: React.FC = () => {
   return (
-    <Container className="flex h-[calc(100vh_-_140px)] flex-col items-center justify-center">
-      <Text className="text-center" h1>
+    <section className="flex h-[calc(100vh_-_140px)] flex-col items-center justify-center">
+      <h1 className="text-center text-5xl font-bold tracking-tighter text-slate-100">
         No hay favoritos
-      </Text>
-      <img
+      </h1>
+      <Image
         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/132.svg"
-        className="h-[250px] w-[250px] opacity-5"
         alt="no favorite"
+        className="h-[250px] w-[250px] opacity-20 grayscale"
+        width={0}
+        height={0}
+        sizes="100%"
       />
-    </Container>
+    </section>
   );
 };

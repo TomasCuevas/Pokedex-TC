@@ -1,21 +1,21 @@
 import { createContext, useState } from "react";
 
 //* CONTEXT *//
-interface NavbarContextProps {
+interface HeaderContextProps {
   showPokemonTypes: boolean;
   showSidebar: boolean;
   onTogglePokemonTypes: () => void;
   onToggleSidebar: () => void;
 }
 
-export const NavbarContext = createContext({} as NavbarContextProps);
+export const HeaderContext = createContext({} as HeaderContextProps);
 
 //* PROVIDER *//
 interface Props {
   children: React.ReactNode;
 }
 
-export const NavbarProvider: React.FC<Props> = ({ children }) => {
+export const HeaderProvider: React.FC<Props> = ({ children }) => {
   const [showPokemonTypes, setShowPokemonTypes] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
 
@@ -23,7 +23,7 @@ export const NavbarProvider: React.FC<Props> = ({ children }) => {
   const onToggleSidebar = () => setShowSidebar((prev) => !prev);
 
   return (
-    <NavbarContext.Provider
+    <HeaderContext.Provider
       value={{
         // properties
         showPokemonTypes,
@@ -35,6 +35,6 @@ export const NavbarProvider: React.FC<Props> = ({ children }) => {
       }}
     >
       {children}
-    </NavbarContext.Provider>
+    </HeaderContext.Provider>
   );
 };

@@ -7,19 +7,19 @@ interface Props {
   previousClick: () => void;
 }
 
-export const ArrowsMobile: React.FC<Props> = ({
+export const Arrows: React.FC<Props> = ({
   next,
   previous,
   nextClick,
   previousClick,
 }) => {
   return (
-    <div className="w-full flex justify-between lg:hidden">
+    <div className="flex w-full justify-between">
       <MdOutlineNavigateBefore
         onClick={previousClick}
         className={
           previous
-            ? "text-4xl text-slate-400 cursor-pointer hover:text-white duration-300 sm:text-4xl md:text-5xl mr-auto"
+            ? "mr-auto cursor-pointer text-4xl text-slate-300 transition-all duration-300 hover:-translate-x-2 hover:text-white sm:text-4xl md:text-5xl lg:text-6xl"
             : "hidden"
         }
       />
@@ -27,7 +27,7 @@ export const ArrowsMobile: React.FC<Props> = ({
         onClick={nextClick}
         className={
           next
-            ? "text-4xl text-slate-400 cursor-pointer hover:text-white duration-300 sm:text-4xl md:text-5xl ml-auto"
+            ? "ml-auto cursor-pointer text-4xl text-slate-300 transition-all duration-300 hover:translate-x-2 hover:text-white sm:text-4xl md:text-5xl lg:text-6xl"
             : "hidden"
         }
       />

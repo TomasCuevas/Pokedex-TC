@@ -1,12 +1,14 @@
 import { NextPage, GetStaticPaths, GetStaticProps } from "next";
-import { Grid } from "@nextui-org/react";
+import Image from "next/future/image";
 
 //* layout *//
 import { Layout } from "../../../components/layouts";
 
+//* components *//
+import { PokemonCard } from "../../../components/pokemon";
+
 //* utils *//
 import { getPokemonForType } from "../../../utils";
-import { PokemonCard } from "../../../components/pokemon";
 
 interface Props {
   allPokemons: [{ id: string; name: string; img: string }];
@@ -16,22 +18,24 @@ interface Props {
 const PokemonTypesPage: NextPage<Props> = ({ allPokemons, type }) => {
   return (
     <Layout title={`${type.toLocaleUpperCase()} - Pokedex TC`}>
-      <section className="w-full px-[5%]">
-        <div className="flex gap-2">
-          <img
+      <section className="mb-5 w-full px-[5%]">
+        <div className="flex items-center gap-2">
+          <Image
             src={`/img/types/${type}.png`}
             alt={type}
             height={80}
             width={80}
           />
-          <h1 className="capitalize">{type}</h1>
+          <h1 className="text-5xl font-bold capitalize tracking-tighter text-slate-100">
+            {type}
+          </h1>
         </div>
       </section>
-      <Grid.Container gap={2} justify="flex-start">
+      <section className="flex flex-wrap justify-center gap-4">
         {allPokemons.map(({ id, name, img }) => (
           <PokemonCard key={id} id={id} name={name} img={img} />
         ))}
-      </Grid.Container>
+      </section>
     </Layout>
   );
 };
