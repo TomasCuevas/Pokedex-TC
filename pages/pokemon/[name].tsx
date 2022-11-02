@@ -46,7 +46,7 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
   };
 
   return (
-    <Layout title={`${pokemon.name.toUpperCase()} - Pokedex TC`}>
+    <Layout title={`${pokemon.name.toUpperCase()} | Pokedex TC`}>
       <article className="mx-auto mt-1 flex max-w-[1400px] flex-col flex-wrap gap-5 px-[5%] lg:flex-row">
         <section className="w-full">
           <Arrows
@@ -117,49 +117,49 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
                 </div>
               ))}
             </div>
-            <div>
-              {pokemon.sprites.front_default ? (
-                <>
-                  <span className="text-3xl font-semibold tracking-tighter text-slate-100">
-                    Más imágenes:
-                  </span>
-                  <div className="flex flex-wrap justify-center">
-                    <Image
-                      src={pokemon.sprites.front_default}
-                      alt={pokemon.name}
-                      className="h-[120px] w-[120px] object-contain duration-300"
-                      width={0}
-                      height={0}
-                      sizes="100%"
-                    />
-                    <Image
-                      src={pokemon.sprites.back_default}
-                      alt={pokemon.name}
-                      className="h-[120px] w-[120px] object-contain duration-300"
-                      width={0}
-                      height={0}
-                      sizes="100%"
-                    />
-                    <Image
-                      src={pokemon.sprites.front_shiny}
-                      alt={pokemon.name}
-                      className="h-[120px] w-[120px] object-contain duration-300"
-                      width={0}
-                      height={0}
-                      sizes="100%"
-                    />
-                    <Image
-                      src={pokemon.sprites.back_shiny}
-                      alt={pokemon.name}
-                      className="h-[120px] w-[120px] object-contain duration-300"
-                      width={0}
-                      height={0}
-                      sizes="100%"
-                    />
-                  </div>
-                </>
-              ) : null}
-            </div>
+          </div>
+          <div>
+            {pokemon.sprites.front_default ? (
+              <>
+                <span className="text-3xl font-semibold tracking-tighter text-slate-100">
+                  Más imágenes:
+                </span>
+                <div className="my-2 flex flex-wrap justify-center">
+                  <Image
+                    src={pokemon.sprites.front_default}
+                    alt={pokemon.name}
+                    className="h-[120px] w-[120px] object-contain duration-300"
+                    width={0}
+                    height={0}
+                    sizes="100%"
+                  />
+                  <Image
+                    src={pokemon.sprites.back_default}
+                    alt={pokemon.name}
+                    className="h-[120px] w-[120px] object-contain duration-300"
+                    width={0}
+                    height={0}
+                    sizes="100%"
+                  />
+                  <Image
+                    src={pokemon.sprites.front_shiny}
+                    alt={pokemon.name}
+                    className="h-[120px] w-[120px] object-contain duration-300"
+                    width={0}
+                    height={0}
+                    sizes="100%"
+                  />
+                  <Image
+                    src={pokemon.sprites.back_shiny}
+                    alt={pokemon.name}
+                    className="h-[120px] w-[120px] object-contain duration-300"
+                    width={0}
+                    height={0}
+                    sizes="100%"
+                  />
+                </div>
+              </>
+            ) : null}
           </div>
         </section>
         <PokemonStats stat={pokemon.stats} />

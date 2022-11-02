@@ -42,7 +42,7 @@ const HomePage: NextPage<Props> = ({ pokemons }) => {
   };
 
   return (
-    <Layout title="Listado de Pokemons">
+    <Layout title="Listado de Pokemons | Pokedex TC">
       <section className="flex flex-wrap justify-center gap-4">
         {allPokemons.map((pokemon) => (
           <PokemonCard key={pokemon.id} {...pokemon} />

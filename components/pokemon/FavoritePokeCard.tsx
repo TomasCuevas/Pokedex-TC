@@ -50,7 +50,7 @@ export const FavoritePokeCard: React.FC<Props> = ({ pokemon }) => {
             height={0}
             sizes="100%"
             quality={60}
-            className="w-full"
+            className="h-[200px] w-full"
           />
         </div>
         <footer className="flex w-full justify-center px-3 py-2">

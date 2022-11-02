@@ -25,7 +25,7 @@ export const PokemonCard: React.FC<Pokemon> = ({ id, img, name }) => {
             height={0}
             sizes="100%"
             quality={60}
-            className="w-full"
+            className="h-[200px] w-full"
           />
         </div>
         <footer className="flex w-full justify-between px-3 py-2">

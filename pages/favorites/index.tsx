@@ -28,7 +28,7 @@ const FavoritesPage: NextPage = () => {
   }, [rerender]);
 
   return (
-    <Layout title="Pokedex TC - Favoritos">
+    <Layout title="Favoritos | Pokedex TC">
       {favoritePokemons.length === 0 ? (
         <NoFavorites />
       ) : (

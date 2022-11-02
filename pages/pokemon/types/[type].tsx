@@ -17,7 +17,7 @@ interface Props {
 
 const PokemonTypesPage: NextPage<Props> = ({ allPokemons, type }) => {
   return (
-    <Layout title={`${type.toLocaleUpperCase()} - Pokedex TC`}>
+    <Layout title={`${type.toLocaleUpperCase()} | Pokedex TC`}>
       <section className="mb-5 w-full px-[5%]">
         <div className="flex items-center gap-2">
           <Image
