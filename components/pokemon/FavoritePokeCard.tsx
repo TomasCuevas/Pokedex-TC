@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/future/image";
 
@@ -20,6 +20,7 @@ interface Props {
 
 export const FavoritePokeCard: React.FC<Props> = ({ pokemon }) => {
   const { onSetRerender } = useContext(FavoritesContext);
+  const [isLoaded, setIsLoaded] = useState(false);
   const router = useRouter();
 
   const { onToggleFavorite } = useToggleFavorite(pokemon.name, pokemon.id);
@@ -31,7 +32,9 @@ export const FavoritePokeCard: React.FC<Props> = ({ pokemon }) => {
   return (
     <article
       onClick={onNavigate}
-      className="group flex w-[calc(50%_-_16px)] flex-col md:w-[calc(33%_-_16px)] lg:w-[calc(25%_-_16px)] xl:w-[calc(20%_-_16px)] 2xl:w-[calc(16%_-_16px)]"
+      className={`group ${
+        isLoaded ? "scale-100" : "scale-75"
+      } flex w-[calc(50%_-_16px)] flex-col transition-all duration-300 md:w-[calc(33%_-_16px)] lg:w-[calc(25%_-_16px)] xl:w-[calc(20%_-_16px)] 2xl:w-[calc(16%_-_16px)]`}
     >
       <div className="relative flex w-full cursor-pointer flex-col items-center rounded-2xl bg-slate-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-white/20">
         <div className="absolute right-3 top-3 flex rounded-full bg-slate-900 p-[2px]">
@@ -44,7 +47,7 @@ export const FavoritePokeCard: React.FC<Props> = ({ pokemon }) => {
             }}
           />
         </div>
-        <div className="w-[200px]">
+        <div className={`w-[200px] ${isLoaded ? "" : "blur-sm"}`}>
           <Image
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
             alt={pokemon.name}
@@ -53,9 +56,14 @@ export const FavoritePokeCard: React.FC<Props> = ({ pokemon }) => {
             sizes="100%"
             quality={60}
             className="h-[200px] w-full"
+            onLoadingComplete={() => setIsLoaded(true)}
           />
         </div>
-        <footer className="flex w-full justify-center px-3 py-2">
+        <footer
+          className={`flex w-full justify-center px-3 py-2 ${
+            isLoaded ? "" : "blur-sm"
+          }`}
+        >
           <h3 className="text-xl font-semibold capitalize text-slate-300 group-hover:text-slate-100">
             {pokemon.name}
           </h3>
