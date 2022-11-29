@@ -1,4 +1,4 @@
-export interface PokemonFull {
+export interface IPokemonFull {
   abilities: Ability[];
   base_experience: number;
   forms: Species[];

@@ -1,4 +1,4 @@
-export interface PokemonListResponse {
+export interface IPokemonListResponse {
   count: number;
   next?: string;
   previous?: string;
@@ -10,18 +10,18 @@ export interface PokemonList {
   url: string;
 }
 
-export interface Pokemon {
+export interface IPokemon {
   id: string;
   img: string;
   name: string;
 }
 
-export interface PokemonFavorite {
+export interface IPokemonFavorite {
   name: string;
   id: number;
 }
 
-export interface PokemonType {
+export interface IPokemonType {
   damage_relations: DamageRelations;
   game_indices: GameIndexx[];
   generation: Generation;
