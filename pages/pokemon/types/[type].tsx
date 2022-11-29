@@ -7,8 +7,8 @@ import { Layout } from "../../../components/layouts";
 //* components *//
 import { PokemonCard } from "../../../components/pokemon";
 
-//* utils *//
-import { getPokemonForType } from "../../../utils";
+//* services *//
+import { getPokemonsForTypeService } from "../../../services";
 
 interface Props {
   allPokemons: [{ id: string; name: string; img: string }];
@@ -74,7 +74,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { type } = params as { type: string };
-  const allPokemons = await getPokemonForType(type);
+  const allPokemons = await getPokemonsForTypeService(type);
 
   return {
     props: {

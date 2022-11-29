@@ -9,26 +9,23 @@ import {
   MdOutlineRemoveCircleOutline,
 } from "react-icons/md";
 
-//* api *//
-import { pokeApi } from "../../axios";
-
 //* components *//
 import { Arrows, PokemonStats } from "../../components/pokemon";
 
 //* layout *//
 import { Layout } from "../../components/layouts";
 
-//* utils *//
-import { getPokemonInfo } from "../../utils";
+//* services *//
+import { getUniquePokemonService } from "../../services";
 
 //* hooks *//
 import { usePreviousNext, useToggleFavorite } from "../../hooks";
 
 //* interfaces *//
-import { PokemonFull, PokemonListResponse } from "../../interfaces";
+import { IPokemonFull } from "../../interfaces/pokemonFull";
 
 interface Props {
-  pokemon: PokemonFull;
+  pokemon: IPokemonFull;
 }
 
 export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
@@ -185,20 +182,15 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
 //* static side generation *//
 //* static side generation *//
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data } = await pokeApi.get<PokemonListResponse>("/pokemon?limit=50");
-  const pokemonNames: string[] = data.results.map((pokemon) => pokemon.name);
-
   return {
-    paths: pokemonNames.map((name) => ({
-      params: { name },
-    })),
+    paths: [],
     fallback: "blocking",
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { name } = params as { name: string };
-  const pokemon = await getPokemonInfo(name.toLowerCase());
+  const pokemon = await getUniquePokemonService(name.toLowerCase());
 
   if (!pokemon) {
     return {
@@ -213,7 +205,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       pokemon,
     },
-    revalidate: 86400,
   };
 };
 
