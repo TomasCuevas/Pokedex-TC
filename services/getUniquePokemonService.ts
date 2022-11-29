@@ -2,11 +2,11 @@
 import { pokeApi } from "../axios";
 
 //* interface *//
-import { PokemonFull } from "../interfaces";
+import { IPokemonFull } from "../interfaces/pokemonFull";
 
-export const getPokemonInfo = async (nameOrId: string) => {
+export const getUniquePokemonService = async (nameOrId: string) => {
   try {
-    const { data } = await pokeApi.get<PokemonFull>(`/pokemon/${nameOrId}`);
+    const { data } = await pokeApi.get<IPokemonFull>(`/pokemon/${nameOrId}`);
 
     const pokemon = {
       id: data.id,
@@ -18,6 +18,7 @@ export const getPokemonInfo = async (nameOrId: string) => {
 
     return pokemon;
   } catch (error) {
+    console.log(error);
     return null;
   }
 };
