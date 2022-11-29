@@ -1,5 +1,6 @@
 import { AppProps } from "next/app";
-import { SWRConfig } from "swr";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 //* providers *//
 import { FavoritesProvider, HeaderProvider } from "../context";
@@ -7,20 +8,19 @@ import { FavoritesProvider, HeaderProvider } from "../context";
 //* theme and styles *//
 import "../styles/globals.css";
 
+// Create a client
+const queryClient = new QueryClient();
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <SWRConfig
-      value={{
-        fetcher: (resource, init) =>
-          fetch(resource, init).then((res) => res.json()),
-      }}
-    >
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
       <HeaderProvider>
         <FavoritesProvider>
           <Component {...pageProps} />
         </FavoritesProvider>
       </HeaderProvider>
-    </SWRConfig>
+    </QueryClientProvider>
   );
 }
 

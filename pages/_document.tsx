@@ -20,7 +20,14 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="es">
-        <Head>{CssBaseline.flush()}</Head>
+        <Head>
+          {CssBaseline.flush()}
+          <link
+            rel="shortcut icon"
+            href="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/132.svg"
+            type="image/x-icon"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />
