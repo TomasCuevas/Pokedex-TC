@@ -1,9 +1,8 @@
-/* eslint-disable import/no-anonymous-default-export */
 //* interface *//
-import { PokemonFavorite } from "../interfaces/pokemon-list";
+import { IPokemonFavorite } from "../interfaces/pokemonList";
 
 const toggleFavorite = (name: string, id: number) => {
-  let favorites: PokemonFavorite[] = JSON.parse(
+  let favorites: IPokemonFavorite[] = JSON.parse(
     localStorage.getItem("favorites") || "[]"
   );
 
@@ -20,7 +19,7 @@ const toggleFavorite = (name: string, id: number) => {
 const existInFavorites = (name: string): boolean => {
   if (typeof window === "undefined") return false;
 
-  const favorites: PokemonFavorite[] = JSON.parse(
+  const favorites: IPokemonFavorite[] = JSON.parse(
     localStorage.getItem("favorites") || "[]"
   );
 
@@ -28,7 +27,7 @@ const existInFavorites = (name: string): boolean => {
   return existInFavorites ? true : false;
 };
 
-const pokemons = (): PokemonFavorite[] =>
+const pokemons = (): IPokemonFavorite[] =>
   JSON.parse(localStorage.getItem("favorites") || "[]");
 
 export default {
