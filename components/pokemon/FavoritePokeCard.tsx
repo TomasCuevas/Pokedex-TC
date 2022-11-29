@@ -12,10 +12,10 @@ import { useToggleFavorite } from "../../hooks";
 import { FavoritesContext } from "../../context";
 
 //* interfaces *//
-import { PokemonFavorite } from "../../interfaces";
+import { IPokemonFavorite } from "../../interfaces/pokemonList";
 
 interface Props {
-  pokemon: PokemonFavorite;
+  pokemon: IPokemonFavorite;
 }
 
 export const FavoritePokeCard: React.FC<Props> = ({ pokemon }) => {

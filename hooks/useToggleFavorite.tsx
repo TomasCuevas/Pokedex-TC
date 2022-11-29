@@ -1,5 +1,5 @@
-import confetti from "canvas-confetti";
 import { useEffect, useState } from "react";
+import confetti from "canvas-confetti";
 
 //* utils *//
 import { localFavorites } from "../utils";

@@ -1,11 +1,10 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 
 //* api *//
 import { pokeApi } from "../axios";
 
 //* interface *//
-import { PokemonListResponse } from "../interfaces";
+import { IPokemonListResponse } from "../interfaces/pokemonList";
 
 interface PreviousAndNext {
   previous: string;
@@ -19,7 +18,7 @@ export const usePreviousNext = (name: string) => {
   const getPreviousAndNext = async () => {
     const {
       data: { results: allPokemons },
-    } = await pokeApi.get<PokemonListResponse>("/pokemon?limit=900&offset=0");
+    } = await pokeApi.get<IPokemonListResponse>("/pokemon?limit=900&offset=0");
 
     let previousAndNext: PreviousAndNext = { previous: "", next: "" };
 

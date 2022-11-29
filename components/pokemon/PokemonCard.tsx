@@ -3,14 +3,14 @@ import { useRouter } from "next/router";
 import Image from "next/future/image";
 
 //* interfaces *//
-import { Pokemon } from "../../interfaces";
+import { IPokemon } from "../../interfaces/pokemonList";
 
-export const PokemonCard: React.FC<Pokemon> = ({ id, img, name }) => {
+export const PokemonCard: React.FC<IPokemon> = ({ id, img, name }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const router = useRouter();
 
   const onNavigate = () => {
-    router.push(`/pokemon/${name}`);
+    return router.push(`/pokemon/${name}`);
   };
 
   return (

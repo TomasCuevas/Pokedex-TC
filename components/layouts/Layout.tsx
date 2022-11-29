@@ -10,7 +10,7 @@ import { HeaderContext } from "../../context/HeaderContext";
 const origin = typeof window === "undefined" ? "" : window.location.origin;
 
 interface Props {
-  children: JSX.Element | JSX.Element[];
+  children: React.ReactNode;
   title?: string;
 }
 

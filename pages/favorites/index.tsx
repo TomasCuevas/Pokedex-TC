@@ -15,10 +15,10 @@ import { FavoriteList } from "../../components/pokemon";
 import { FavoritesContext } from "../../context";
 
 //* interfaces *//
-import { PokemonFavorite } from "../../interfaces";
+import { IPokemonFavorite } from "../../interfaces/pokemonList";
 
 const FavoritesPage: NextPage = () => {
-  const [favoritePokemons, setFavoritePokemons] = useState<PokemonFavorite[]>(
+  const [favoritePokemons, setFavoritePokemons] = useState<IPokemonFavorite[]>(
     []
   );
   const { rerender } = useContext(FavoritesContext);

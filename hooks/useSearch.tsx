@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { pokeApi } from "../axios";
 
 //* interface *//
-import { PokemonListResponse } from "../interfaces";
+import { IPokemonListResponse } from "../interfaces/pokemonList";
 
 interface results {
   name: string;
@@ -23,7 +23,7 @@ export const useSearch = (toSearch: string) => {
       return;
     }
 
-    const { data } = await pokeApi.get<PokemonListResponse>(
+    const { data } = await pokeApi.get<IPokemonListResponse>(
       "/pokemon?limit=10000"
     );
 

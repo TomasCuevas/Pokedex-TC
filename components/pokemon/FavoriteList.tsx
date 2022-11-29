@@ -2,10 +2,10 @@
 import { FavoritePokeCard } from "./";
 
 //* interfaces *//
-import { PokemonFavorite } from "../../interfaces";
+import { IPokemonFavorite } from "../../interfaces/pokemonList";
 
 interface Props {
-  favoritePokemons: PokemonFavorite[];
+  favoritePokemons: IPokemonFavorite[];
 }
 
 export const FavoriteList: React.FC<Props> = ({ favoritePokemons }) => {
