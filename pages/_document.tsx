@@ -6,7 +6,6 @@ import Document, {
   NextScript,
   DocumentContext,
 } from "next/document";
-import { CssBaseline } from "@nextui-org/react";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -21,7 +20,6 @@ class MyDocument extends Document {
     return (
       <Html lang="es">
         <Head>
-          {CssBaseline.flush()}
           <link
             rel="shortcut icon"
             href="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/132.svg"

@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import NextLink from "next/link";
@@ -11,10 +10,10 @@ import { MdSearch } from "react-icons/md";
 import { useSearch } from "../../../hooks";
 
 export const Searcher: React.FC = () => {
-  const router = useRouter();
-
   const [search, setSearch] = useState<string>("");
   const { results, visible, onClear, onChangeVisibility } = useSearch(search);
+
+  const router = useRouter();
 
   useEffect(() => {
     onClear();
