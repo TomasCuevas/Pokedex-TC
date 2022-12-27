@@ -1,7 +1,5 @@
-import Image from "next/future/image";
-
 //* interface *//
-import { Stat } from "../../interfaces";
+import { Stat } from "../../interfaces/pokemonFull";
 
 interface Props {
   stat: Stat[];
@@ -35,13 +33,10 @@ export const PokemonStats: React.FC<Props> = ({ stat }) => {
             <h5 className="font-black tracking-[4px] text-slate-300 lg:text-xl">
               {stat.name}
             </h5>
-            <Image
+            <img
               src={stat.image}
               alt="hp"
               className="h-[120px] w-[120px] object-fill"
-              width={0}
-              height={0}
-              sizes="100%"
             />
             <span className="text-4xl font-black tracking-[5px] text-slate-100">
               {stat.base}

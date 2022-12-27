@@ -1,5 +1,4 @@
 import { NextPage, GetStaticPaths, GetStaticProps } from "next";
-import Image from "next/future/image";
 
 //* layout *//
 import { Layout } from "../../../components/layouts";
@@ -20,11 +19,10 @@ const PokemonTypesPage: NextPage<Props> = ({ allPokemons, type }) => {
     <Layout title={`${type.toLocaleUpperCase()} | Pokedex TC`}>
       <section className="mb-5 w-full px-[5%]">
         <div className="flex items-center gap-2">
-          <Image
+          <img
             src={`/img/types/${type}.png`}
             alt={type}
-            height={80}
-            width={80}
+            className="h-[80px] w-[80px]"
           />
           <h1 className="text-5xl font-bold capitalize tracking-tighter text-slate-100">
             {type}

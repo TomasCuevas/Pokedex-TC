@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import NextLink from "next/link";
-import Image from "next/future/image";
 
 //* icons *//
 import { MdSearch } from "react-icons/md";
@@ -51,13 +50,10 @@ export const Searcher: React.FC = () => {
             >
               <a className="group">
                 <li className="m-0 flex h-12 w-full min-w-full items-center gap-3 border-b border-slate-900 bg-slate-300 px-2 transition-all duration-300 group-hover:border-b-white group-hover:bg-slate-400">
-                  <Image
+                  <img
                     src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
                     alt={pokemon.name}
                     className="h-[30px] w-[30px]"
-                    width={0}
-                    height={0}
-                    sizes="100%"
                   />
                   <p className="font-semibold capitalize text-slate-900 group-hover:text-white">
                     {pokemon.name}

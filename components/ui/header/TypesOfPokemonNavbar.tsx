@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import NextLink from "next/link";
-import Image from "next/future/image";
 
 //* icons *//
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
@@ -69,14 +68,10 @@ export const TypesOfPokemonNavbar = () => {
                 onClick={onTogglePokemonTypes}
                 className="flex items-center justify-center gap-2 px-3 transition-all duration-300 group-hover:bg-slate-900"
               >
-                <Image
+                <img
                   src={`/img/types/${type}.png`}
                   alt={type}
                   className="h-[50px] w-[50px]"
-                  width={0}
-                  height={0}
-                  sizes="100%"
-                  quality={60}
                 />
                 <span className="font-semibold capitalize text-slate-900 transition-all duration-300 group-hover:text-slate-100">
                   {type}

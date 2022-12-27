@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { GetStaticProps, GetStaticPaths, NextPage } from "next";
 import { useRouter } from "next/router";
-import Image from "next/future/image";
 
 //* icons *//
 import {
@@ -29,7 +27,6 @@ interface Props {
 }
 
 export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
   const router = useRouter();
 
   const { isInFavorite, onToggleFavorite } = useToggleFavorite(
@@ -55,27 +52,15 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
             previousClick={() => navigateTo("previous")}
           />
         </section>
-        <section
-          className={`w-full lg:w-[30%] ${
-            isLoaded ? "scale-100" : "scale-75"
-          } transition-all duration-300`}
-        >
-          <div
-            className={`w-full rounded-2xl bg-slate-900 p-5 transition-all duration-300 hover:-translate-y-1 ${
-              isLoaded ? "" : "blur-sm"
-            }`}
-          >
-            <Image
+        <section className="w-full scale-100 transition-all duration-300 lg:w-[30%]">
+          <div className="w-full rounded-2xl bg-slate-900 p-5 transition-all duration-300 hover:-translate-y-1">
+            <img
               src={
                 pokemon.sprites.other?.["official-artwork"].front_default ||
                 "/no-image.png"
               }
               alt={pokemon.name}
-              width={0}
-              height={0}
-              sizes="100%"
               className="h-[200px] w-full object-contain lg:h-[250px]"
-              onLoadingComplete={() => setIsLoaded(true)}
             />
           </div>
         </section>
@@ -114,13 +99,10 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
             <div className="my-6 flex flex-col flex-wrap sm:flex-row sm:gap-10">
               {pokemon.types.map((type) => (
                 <div key={type.type.name} className="flex items-center gap-3">
-                  <Image
+                  <img
                     src={`/img/types/${type.type.name}.png`}
                     alt={type.type.name}
                     className="m-0 h-[60px] w-[60px]"
-                    width={0}
-                    height={0}
-                    sizes="100%"
                   />
                   <h4 className="text-xl font-bold capitalize tracking-tighter text-slate-200">
                     {type.type.name}
@@ -136,37 +118,25 @@ export const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
                   Más imágenes:
                 </span>
                 <div className="my-2 flex flex-wrap justify-center">
-                  <Image
+                  <img
                     src={pokemon.sprites.front_default}
                     alt={pokemon.name}
                     className="h-[120px] w-[120px] object-contain duration-300"
-                    width={0}
-                    height={0}
-                    sizes="100%"
                   />
-                  <Image
+                  <img
                     src={pokemon.sprites.back_default}
                     alt={pokemon.name}
                     className="h-[120px] w-[120px] object-contain duration-300"
-                    width={0}
-                    height={0}
-                    sizes="100%"
                   />
-                  <Image
+                  <img
                     src={pokemon.sprites.front_shiny}
                     alt={pokemon.name}
                     className="h-[120px] w-[120px] object-contain duration-300"
-                    width={0}
-                    height={0}
-                    sizes="100%"
                   />
-                  <Image
+                  <img
                     src={pokemon.sprites.back_shiny}
                     alt={pokemon.name}
                     className="h-[120px] w-[120px] object-contain duration-300"
-                    width={0}
-                    height={0}
-                    sizes="100%"
                   />
                 </div>
               </>
