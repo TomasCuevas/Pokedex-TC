@@ -1,17 +1,31 @@
 import { NextPage } from "next";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 //* layout *//
 import { Layout } from "../components/layouts";
 
 //* components *//
 import { PokemonCard } from "../components/pokemon";
-import { LoadMore } from "../components/ui";
+import { Loader } from "../components/ui";
 
 //* hooks *//
 import { useFetchPokemons } from "../hooks";
 
 const HomePage: NextPage = () => {
   const { pokemonQuery } = useFetchPokemons();
+
+  const { ref, inView } = useInView({ threshold: 0.3 });
+
+  useEffect(() => {
+    if (
+      inView &&
+      !pokemonQuery.isLoading &&
+      pokemonQuery.data!.pages.flat().length <= 900
+    ) {
+      pokemonQuery.fetchNextPage();
+    }
+  }, [inView]);
 
   return (
     <Layout title="Listado de Pokemons | Pokedex TC">
@@ -27,14 +41,8 @@ const HomePage: NextPage = () => {
           />
         ))}
       </section>
-      <LoadMore
-        onClick={pokemonQuery.fetchNextPage}
-        none={
-          pokemonQuery.data?.pages
-            ? pokemonQuery.data.pages.flat().length >= 900
-            : false
-        }
-      />
+      <div ref={ref} className="h-10 w-full"></div>
+      {pokemonQuery.isLoading ? <Loader /> : null}
     </Layout>
   );
 };

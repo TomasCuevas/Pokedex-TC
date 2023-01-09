@@ -1,4 +1,4 @@
-export * from "./LoadMore";
+export * from "./Loader";
 export * from "./header/Header";
 export * from "./NoFavorites";
 export * from "./header";
