@@ -1,7 +1,6 @@
 import React from "react";
 import Document, {
   Html,
-  Head,
   Main,
   NextScript,
   DocumentContext,
@@ -19,13 +18,6 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="es">
-        <Head>
-          <link
-            rel="shortcut icon"
-            href="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/132.svg"
-            type="image/x-icon"
-          />
-        </Head>
         <body>
           <Main />
           <NextScript />

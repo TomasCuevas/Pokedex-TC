@@ -34,6 +34,11 @@ export const Layout: React.FC<Props> = ({ children, title }) => {
         />
         <meta property="og:image" content={`${origin}/img/banner.png`} />
         <meta property="twitter:image" content={`${origin}/img/banner.png`} />
+        <link
+          rel="shortcut icon"
+          href="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/132.svg"
+          type="image/x-icon"
+        />
       </Head>
 
       <Header />
